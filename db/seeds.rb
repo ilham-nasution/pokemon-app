@@ -1,7 +1,7 @@
 require  "json"
 require "open-uri"
 
-url = 'https://pokeapi.co/api/v2/pokemon/?limit=20'
+url = 'https://pokeapi.co/api/v2/pokemon/?limit=100'
 data = open(url).read
 pokemons = JSON.parse(data)
 
