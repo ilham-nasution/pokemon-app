@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="text-center">
+    <% if @pokemon.photo.file %>
+        <%= cl_image_tag @pokemon.photo, height: 300, width: 300, radius: :max, crop: :fit, format: :png %>
+      <% else %>
+      <%= image_tag "https://dystonia-foundation.org/wp-content/uploads/woocommerce-placeholder.png", alt: "placeholder", class: "rounded-circle", width: 300, height: 300 %>
+    <% end %>
+    <h1 class="mt-2"><%= @pokemon.name.capitalize %></h1>
+    <h2>Moves:</h2>
+    <% @pokemon.moves.shuffle.first(5).each do |move| %>
+        <p><%= move.name %></p>
+      <% end %>
+      <h2>Types:</h2>
+    <% @pokemon.types.each do |type| %>
+        <p><%= type.name %></p>
+      <% end %>
+    <%= link_to edit_pokemon_path, class: 'btn btn-outline-dark mr-3' do %>
+    <p class="mb-0"> <i class="far fa-edit"></i> edit </p>
+    <% end %>
+      <%= link_to pokemon_path(@pokemon), method: :delete, class: 'btn btn-danger' do %>
+        <p class="mb-0"> <i class="far fa-trash-alt"></i> delete</p>
+      <% end %>
+  </div>
+</div>

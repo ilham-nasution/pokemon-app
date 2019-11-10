@@ -1,0 +1,8 @@
+<div class="container">
+<h1 class="text-center">Create a new moves</h1>
+
+<%= simple_form_for [@pokemon, @move] do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Add Move", class: "btn btn-primary" %>
+<% end %>
+</div>

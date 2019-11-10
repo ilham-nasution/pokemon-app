@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="text-center">
+    <h1 class="mb-3">Edit pokemon</h1>
+      <h2>Moves:</h2>
+      <% @pokemon.moves.each do |move| %>
+      <div class="row justify-content-center">
+        <p><%= move.name %></p>
+        <%= link_to move_path(move), method: :delete do %>
+         <p><i class="far fa-trash-alt ml-3 text-danger"></i></p>
+        <% end %>
+        </div>
+      <% end %>
+      <%= link_to new_pokemon_move_path(@pokemon), class: 'btn btn-outline-dark mr-3' do %>
+        <p class="mb-0"> <i class="far fa-plus-square mr-2"></i> New Moves </p>
+      <% end %>
+    </div>
+    <%= simple_form_for @pokemon do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit "Edit pokemon", class: "btn btn-primary"%>
+    <% end %>
+</div>

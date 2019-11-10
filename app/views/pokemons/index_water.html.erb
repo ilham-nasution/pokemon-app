@@ -1,0 +1,65 @@
+<div class="home-banner">
+  <p class="ml-3">
+    <span id="banner-typed-text"></span>
+  </p>
+  <p class="ml-3">
+     <span id="banner-typed-text2"></span>
+  </p>
+</div>
+<div class="container">
+  <h2 class="mb-2">Filter by type:</h2>
+  <div class="mb-5 d-flex">
+    <%= link_to grass_pokemons_path do %>
+      <%= image_tag "https://pokeguide.neocities.org/Pic/grassicon.png", alt: "alttext", width: 80, height: 35, class: "mr-3" %>
+    <% end %>
+    <%= link_to fire_pokemons_path do %>
+      <%= image_tag "https://pokeguide.neocities.org/Pic/fireicon.png", alt: "alttext", width: 80, height: 35, class: "mr-3" %>
+    <% end %>
+    <%= link_to water_pokemons_path do %>
+      <%= image_tag "https://pokeguide.neocities.org/Pic/watericon.png", alt: "alttext", width: 80, height: 35, class: "mr-3" %>
+    <% end %>
+  </div>
+  <div class="row justify-content-center">
+    <% @pokemons.each do |pokemon| %>
+    <div class="col-4 mb-3">
+    <%= link_to pokemon_path(pokemon), class: 'text-body text-decoration-none' do %>
+      <div class="card shadow">
+        <% if pokemon.photo.file %>
+          <%= cl_image_tag pokemon.photo, width: 300, height: 300, class: "card-img-top" %>
+        <% else %>
+          <%= image_tag "https://dystonia-foundation.org/wp-content/uploads/woocommerce-placeholder.png", alt: "placeholder", width: 300, height: 300, class: "card-img-top" %>
+        <% end %>
+        <div class="card-body">
+          <h3 class="card-title text-center font-weight-bold"><%= pokemon.name.capitalize %></h3>
+          <h5 class="font-weight-bold">Moves</h5>
+            <% pokemon.moves.shuffle.first(3).each do |move| %>
+              <p class="card-text">
+                <%= image_tag "https://www.trzcacak.rs/myfile/full/153-1530452_swords-icon-png-crossed-swords-icon-png.png", alt: "alttext", width: 20, height: 20 %> <%= move.name %>
+              </p>
+            <% end %>
+            <h5 class="font-weight-bold">Types</h5>
+            <div class="d-flex">
+            <% pokemon.types.each do |type| %>
+              <p class="card-text mr-3 mb-0">
+                <% if type.name == "poison" %>
+                <%= image_tag "https://66.media.tumblr.com/d7d0ded5ecca28d4df4762a046da5df4/tumblr_p0vhknlkpM1sx8kfno1_400.png", alt: "alttext", width: 20, height: 20 %> <%= type.name %>
+                <% elsif type.name == "grass" %>
+                <%= image_tag "https://i.pinimg.com/originals/4f/fa/1a/4ffa1a4357ffa15bfba324007c2405fb.png", alt: "alttext", width: 20, height: 20 %> <%= type.name %>
+                <% elsif type.name == "fire" %>
+                <%= image_tag "http://www.jemome.com/cdn/2010/07/fire-type-pokemon-symbol_260435.png", alt: "alttext", width: 20, height: 20 %> <%= type.name %>
+                <% elsif type.name == "flying" %>
+                <%= image_tag "http://pm1.narvii.com/5918/f460b045c1a8a2d30323ccae66ae1466d9d29150_00.jpg", alt: "alttext", width: 20, height: 20 %> <%= type.name %>
+                <% else %>
+                <%= type.name %>
+                <% end %>
+              </p>
+            <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+
