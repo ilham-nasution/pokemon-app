@@ -1,5 +1,6 @@
 require  "json"
 require "open-uri"
+require 'pry'
 
 url = 'https://pokeapi.co/api/v2/pokemon/?limit=100'
 data = open(url).read
@@ -17,9 +18,10 @@ pokemons.each do |pokemon|
   data2 = open(url2).read
   pokemonImg = JSON.parse(data2)
   puts "Insert pokemon images..."
-  pokemon.photo = pokemonImg["sprites"]["front_default"]
+  pokemon.remote_photo_url = pokemonImg["sprites"]["front_default"]
   pokemon.save!
   puts "....Finished"
+  \
 end
 
 pokemons2 = Pokemon.all
