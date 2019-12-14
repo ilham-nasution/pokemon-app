@@ -1,5 +1,5 @@
 .home-banner {
-  background-image: url('http://4.bp.blogspot.com/-y92FmK4kp6Y/VbY8mDKYazI/AAAAAAAAIvk/ELFrKj9X-oY/s1600/Pokemon_Vector.png');
+  background-image: url("http://4.bp.blogspot.com/-y92FmK4kp6Y/VbY8mDKYazI/AAAAAAAAIvk/ELFrKj9X-oY/s1600/Pokemon_Vector.png");
   background-size: 1000px;
   background-repeat: no-repeat;
   background-position: 90% 1%;
@@ -12,31 +12,47 @@
   padding-top: 20vh;
 }
 
-.navbar-trans{
+.navbar-trans {
   background-color: transparent;
   position: relative;
 }
 
-.poke{
+.poke {
   z-index: 2;
   background-color: #f4f4f4;
   border-radius: 50%;
 }
 
-#home{
+#home {
   position: absolute;
   transition: transform 0.5s 500ms ease-out;
 }
 
-.home-click{
+.home-click {
   transform: translate(25px, 50px);
 }
 
-#plus{
+#plus {
   position: absolute;
   transition: transform 0.5s 500ms ease-out;
 }
 
-.plus-click{
+.plus-click {
   transform: translate(60px, 2px);
+}
+
+@media only screen and (max-width: 600px) {
+  .home-banner {
+    background-image: url("http://4.bp.blogspot.com/-y92FmK4kp6Y/VbY8mDKYazI/AAAAAAAAIvk/ELFrKj9X-oY/s1600/Pokemon_Vector.png");
+    background-size: 700px;
+    background-repeat: no-repeat;
+    background-position: 53% 10%;
+    height: 100vh;
+    color: #2e3131;
+    font-size: 60px;
+    text-shadow: 2px 2px 4px white;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 40vh;
+  }
 }

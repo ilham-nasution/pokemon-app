@@ -21,7 +21,7 @@
   </div>
   <div class="row justify-content-center">
     <% @pokemons.each do |pokemon| %>
-    <div class="col-4 mb-3">
+    <div class="col-12 col-md-6 col-lg-4 mb-3">
     <%= link_to pokemon_path(pokemon), class: 'text-body text-decoration-none' do %>
       <div class="card shadow">
         <% if pokemon.photo.file %>
